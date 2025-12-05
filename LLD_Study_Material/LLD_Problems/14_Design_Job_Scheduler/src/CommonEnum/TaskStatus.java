@@ -1,0 +1,9 @@
+package CommonEnum;
+
+public enum TaskStatus {
+    PENDING,
+    RUNNING,
+    COMPLETED,
+    FAILED,
+    CANCELLED
+}
