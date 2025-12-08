@@ -8,7 +8,15 @@ import UtilityClasses.Elevator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * A SCAN scheduling strategy for elevators.
+ */
 public class ScanSchedulingStrategy implements SchedulingStrategy {
+    /**
+     * Determines the next stop for the elevator based on the SCAN algorithm.
+     * @param elevator The elevator for which to determine the next stop.
+     * @return The next floor to stop at.
+     */
     @Override
     public int getNextStop(Elevator elevator) {
         // Retrieve elevator's current direction and floor
@@ -82,8 +90,12 @@ public class ScanSchedulingStrategy implements SchedulingStrategy {
     }
 
 
-    // Helper method to switch the elevator's direction when no further requests
-    // exist in the current direction
+    /**
+     * Helper method to switch the elevator's direction when no further requests exist in the current direction.
+     * @param elevator The elevator.
+     * @param requestsQueue The queue of requests for the opposite direction.
+     * @return The next floor to stop at.
+     */
     private int switchDirection(
             Elevator elevator, PriorityQueue<ElevatorRequest> requestsQueue) {
         elevator.setDirection(elevator.getDirection() == Direction.UP

@@ -16,7 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The main class to run the parking lot simulation.
+ */
 public class Main {
+    /**
+     * The main method to run the parking lot simulation.
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         // Initialize parking spots
         List<ParkingSpot> parkingSpots = new ArrayList<>();
@@ -68,6 +75,13 @@ public class Main {
         }
         scanner.close();
     }
+
+    /**
+     * Gets the payment strategy based on the user's choice.
+     * @param paymentMethod The payment method chosen by the user.
+     * @param fee The fee to be paid.
+     * @return The payment strategy.
+     */
     private static PaymentStrategy getPaymentStrategy(
             int paymentMethod, double fee) {
         switch (paymentMethod) {
@@ -81,24 +95,3 @@ public class Main {
         }
     }
     }
-
-    /*
-
-Output :
-
-Vehicle parked successfully in spot: 1
-Vehicle parked successfully in spot: 3
-Vehicle parked successfully in spot: 2
-Vehicle parked successfully in spot: 4
-Select payment method for your vehicle:
-1. Credit Card
-2. Cash
-1
-Processing credit card payment of $20.0
-Car vacated the spot: 1
-Processing credit card payment of $24.0
-Bike vacated the spot: 3
-
-Process finished with exit code 0
-
-     */

@@ -3,7 +3,17 @@ package FareStrategyPattern.ConcreteStrategies;
 import CommonEnum.DurationType;
 import FareStrategyPattern.ParkingFeeStrategy;
 
+/**
+ * A premium rate strategy for calculating parking fees.
+ */
 public class PremiumRateStrategy implements ParkingFeeStrategy {
+    /**
+     * Calculates the parking fee based on the vehicle type, duration, and duration type.
+     * @param vehicleType The type of the vehicle.
+     * @param duration The duration of parking.
+     * @param durationType The type of the duration (HOURS or DAYS).
+     * @return The calculated parking fee.
+     */
     @Override
     public double calculateFee(String vehicleType, int duration, DurationType durationType) {
         // Premium rates with higher multipliers

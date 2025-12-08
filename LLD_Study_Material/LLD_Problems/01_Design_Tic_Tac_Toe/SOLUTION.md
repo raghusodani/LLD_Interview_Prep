@@ -759,7 +759,7 @@ public class PlayerTurnState implements GameState {
 ### **Q1: How would you extend to N×N board with M-in-a-row to win?**
 
 **Answer:**
-```
+```java
 Make size and winCondition configurable:
 
 public class Board {
@@ -815,7 +815,7 @@ Board board = new Board(5, 4);
 ### **Q2: How to implement AI player with different difficulty levels?**
 
 **Answer:**
-```
+```java
 Use Strategy Pattern with different AI implementations:
 
 // Easy: Random moves
@@ -868,7 +868,7 @@ Player hard = new Player(Symbol.O, new HardAIStrategy());
 ### **Q3: How would you implement undo/redo functionality?**
 
 **Answer:**
-```
+```java
 Use Command Pattern + Memento Pattern:
 
 // Command interface
@@ -931,7 +931,7 @@ public class GameHistory {
 ### **Q4: How to support multiplayer (>2 players)?**
 
 **Answer:**
-```
+```java
 Generalize to N players:
 
 public class GameContext {
@@ -975,7 +975,7 @@ GameContext context = new GameContext(new Board(4), players);
 ### **Q5: How to make the game thread-safe for concurrent access?**
 
 **Answer:**
-```
+```java
 Add synchronization at key points:
 
 public class GameContext {
@@ -1023,7 +1023,7 @@ public class NetworkedGameContext {
 ### **Q6: How would you test this system?**
 
 **Answer:**
-```
+```java
 Unit Tests:
 1. Board Tests:
    - Test win detection for all rows
@@ -1080,7 +1080,7 @@ public class BoardTest {
 ### **Q7: How to add replay/spectator mode?**
 
 **Answer:**
-```
+```java
 Add Observer Pattern + Event Recording:
 
 // Observer interface

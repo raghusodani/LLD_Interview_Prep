@@ -1,7 +1,19 @@
 package CommonEnums;
 
+/**
+ * Represents the direction of the elevator.
+ */
 public enum Direction {
-    UP,      // The elevator is moving upward
-    DOWN,    // The elevator is moving downward
-    IDLE     // The elevator is stationary, not moving
+    /**
+     * The elevator is moving upward.
+     */
+    UP,
+    /**
+     * The elevator is moving downward.
+     */
+    DOWN,
+    /**
+     * The elevator is stationary, not moving.
+     */
+    IDLE
 }

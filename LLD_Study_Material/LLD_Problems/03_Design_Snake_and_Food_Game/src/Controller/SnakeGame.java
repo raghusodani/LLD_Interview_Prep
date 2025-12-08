@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * Represents the snake game.
+ */
 public class SnakeGame {
     private GameBoard board;
     public Deque<Pair> snake;
@@ -18,7 +21,12 @@ public class SnakeGame {
     private int foodIndex;
     private MovementStrategy movementStrategy;
 
-    // Initialize the game with specified dimensions and food positions.
+    /**
+     * Initialize the game with specified dimensions and food positions.
+     * @param width The width of the game board.
+     * @param height The height of the game board.
+     * @param food The positions of the food.
+     */
     public SnakeGame(int width, int height, int[][] food) {
         this.board = GameBoard.getInstance(width, height);
         this.food = food;
@@ -35,12 +43,19 @@ public class SnakeGame {
         this.movementStrategy = new HumanMovementStrategy();
     }
 
-    // Set the movement strategy (Human or AI)
+    /**
+     * Set the movement strategy (Human or AI).
+     * @param strategy The movement strategy to use.
+     */
     public void setMovementStrategy(MovementStrategy strategy) {
         this.movementStrategy = strategy;
     }
 
-    // Returns the new score or -1 if game over.
+    /**
+     * Moves the snake in the given direction.
+     * @param direction The direction to move the snake (U, D, L, or R).
+     * @return The new score, or -1 if the game is over.
+     */
     public int move(String direction) {
         // Get current head
         Pair currentHead = this.snake.peekFirst();
@@ -85,6 +100,10 @@ public class SnakeGame {
         return score;
     }
 
+    /**
+     * Gets the snake.
+     * @return The snake.
+     */
     public Deque<Pair> getSnake() {
         return snake;
     }

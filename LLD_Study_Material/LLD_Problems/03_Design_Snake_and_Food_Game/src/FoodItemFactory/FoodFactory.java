@@ -3,9 +3,16 @@ package FoodItemFactory;
 import FoodItemFactory.ConcreteFoodItems.BonusFood;
 import FoodItemFactory.ConcreteFoodItems.NormalFood;
 
-// Factory class for creating food items based on type
+/**
+ * Factory class for creating food items based on type.
+ */
 class FoodFactory {
-    // Static method to create a food item at a given position and type
+    /**
+     * Static method to create a food item at a given position and type.
+     * @param position The position of the food item.
+     * @param type The type of the food item ("bonus" or "normal").
+     * @return The created food item.
+     */
     public static FoodItem createFood(int[] position, String type) {
         if ("bonus".equals(type)) {
             return new BonusFood(position[0], position[1]); // Create bonus food

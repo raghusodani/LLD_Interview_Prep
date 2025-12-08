@@ -2,7 +2,14 @@ import Controller.SnakeGame;
 
 import java.util.Scanner;
 
+/**
+ * The main class to start the snake game.
+ */
 public class Main {
+    /**
+     * The main method to start the snake game.
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
             // Define game configuration
             // can be taken as user input as well
@@ -64,7 +71,12 @@ public class Main {
             scanner.close();
             System.out.println("Thanks for playing!");
         }
-        // Convert user-friendly WASD input to UDLR for the game engine
+
+        /**
+         * Convert user-friendly WASD input to UDLR for the game engine.
+         * @param input The user's input (W, A, S, or D).
+         * @return The direction for the game engine (U, D, L, or R).
+         */
         private static String convertInput(String input) {
             switch (input) {
                 case "W":
@@ -79,8 +91,12 @@ public class Main {
                     return ""; // Invalid input
             }
         }
-        // A simple method to display the game state in the console
-        // In a real implementation, this would be replaced with graphics
+
+        /**
+         * A simple method to display the game state in the console.
+         * In a real implementation, this would be replaced with graphics.
+         * @param game The snake game instance.
+         */
         private static void displayGameState(SnakeGame game) {
             // This is a placeholder - in a real implementation, you would
             // access the game's state and render it appropriately
@@ -89,41 +105,3 @@ public class Main {
             // snake, food, and boundaries visually
         }
 }
-
-/*
-
-Output :
-
-===== SNAKE GAME =====
-Controls: W (Up), S (Down), A (Left), D (Right), Q (Quit)
-Eat food to grow your snake and increase your score.
-Don't hit the walls or bite yourself!
-=======================
-nCurrent snake length: 1
-Enter move (W/A/S/D) or Q to quit: D
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: D
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: A
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: A
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: S
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: S
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: S
-Score: 1
-nCurrent snake length: 2
-Enter move (W/A/S/D) or Q to quit: A
-GAME OVER! You hit a wall or bit yourself.
-Final score: 1
-Thanks for playing!
-
-*/

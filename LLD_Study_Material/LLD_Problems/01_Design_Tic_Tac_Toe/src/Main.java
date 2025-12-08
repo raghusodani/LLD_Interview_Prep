@@ -2,9 +2,16 @@ import Controller.GameController.TicTacToeGame;
 import PlayerStrategies.ConcreteStrategies.HumanPlayerStrategy;
 import PlayerStrategies.PlayerStrategy;
 
-// The main method serves as the entry point for the Tic-Tac-Toe game
-// application. It initializes the player strategies and starts the game.
+/**
+ * The main class serves as the entry point for the Tic-Tac-Toe game
+ * application. It initializes the player strategies and starts the game.
+ */
 public class Main {
+
+    /**
+     * The main method that starts the Tic-Tac-Toe game.
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         PlayerStrategy playerXStrategy = new HumanPlayerStrategy("Player X");
         PlayerStrategy playerOStrategy = new HumanPlayerStrategy("Player O");

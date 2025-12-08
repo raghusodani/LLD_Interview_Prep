@@ -6,14 +6,27 @@ import Utility.Position;
 
 import java.util.Scanner;
 
+/**
+ * Represents a human player's strategy.
+ */
 public class HumanPlayerStrategy implements PlayerStrategy {
     private Scanner scanner;
     private String playerName;
-    // HumanPlayerStrategy Constructor
+
+    /**
+     * Constructs a new HumanPlayerStrategy.
+     * @param playerName The name of the player.
+     */
     public HumanPlayerStrategy(String playerName) {
         this.playerName = playerName;
         this.scanner = new Scanner(System.in);
     }
+
+    /**
+     * Prompts the human player to enter their move and validates it.
+     * @param board The game board.
+     * @return The position of the move.
+     */
     @Override
     public Position makeMove(Board board) {
         while (true) {

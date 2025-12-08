@@ -7,7 +7,15 @@ import UtilityClasses.Elevator;
 
 import java.util.Queue;
 
+/**
+ * A LOOK scheduling strategy for elevators.
+ */
 public class LookSchedulingStrategy implements SchedulingStrategy {
+    /**
+     * Determines the next stop for the elevator based on the LOOK algorithm.
+     * @param elevator The elevator for which to determine the next stop.
+     * @return The next floor to stop at.
+     */
     @Override
     public int getNextStop(Elevator elevator) {
         int currentFloor = elevator.getCurrentFloor();

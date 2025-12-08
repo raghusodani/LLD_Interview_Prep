@@ -9,7 +9,14 @@ import UtilityClasses.ElevatorController;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The main class to run the elevator system simulation.
+ */
 public class Main {
+    /**
+     * The main method to run the elevator system simulation.
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         // Initialize a building with 10 floors and 3 elevators
         Building building = new Building("Office Tower", 10, 3);
@@ -94,7 +101,10 @@ public class Main {
         System.out.println("Simulation ended"); // End of simulation
     }
 
-    // Display the status of all elevators in the system
+    /**
+     * Display the status of all elevators in the system.
+     * @param elevators The list of elevators.
+     */
     private static void displayElevatorStatus(List<Elevator> elevators) {
         System.out.println("nElevator Status:");
         for (Elevator elevator : elevators) {
@@ -107,82 +117,3 @@ public class Main {
         }
     }
     }
-
-    /*
-
-    Output :
-
-    Elevator System Simulation
-Building: Office Tower
-Floors: 10
-Elevators: 3
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-1
-Enter elevator ID: 1
-Enter floor number: 1
-Direction (1 for UP, 2 for DOWN): 2
-External request: Floor 1, Direction DOWN
-Elevator 1 state changed to MOVING
-Assigned elevator 1 to floor 1
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-1
-Enter elevator ID: 1
-Enter floor number: 12
-Direction (1 for UP, 2 for DOWN): 1
-External request: Floor 12, Direction UP
-Assigned elevator 1 to floor 12
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-2
-Enter elevator ID: 1
-Enter destination floor: 2
-Internal request: Elevator 1 to floor 2
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-4
-Select strategy:
-1. SCAN Algorithm
-2. FCFS Algorithm
-3. Look Algorithm
-2
-Strategy set to Nearest Elevator First
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-1
-Enter elevator ID: 1
-Enter floor number: 34
-Direction (1 for UP, 2 for DOWN): 2
-External request: Floor 34, Direction DOWN
-Assigned elevator 1 to floor 34
-nSelect an option:
-1. Request elevator (external)
-2. Request floor (internal)
-3. Simulate next step
-4. Change scheduling strategy
-5. Exit simulation
-5
-Simulation ended
-
-    */

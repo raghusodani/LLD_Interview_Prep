@@ -8,6 +8,9 @@ import SchedulingAlgoStrategyPattern.SchedulingStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controls the elevators in the building.
+ */
 public class ElevatorController {
     // List of all elevators in the system
     private List<Elevator> elevators;
@@ -17,12 +20,19 @@ public class ElevatorController {
     private SchedulingStrategy schedulingStrategy;
     // ID of the current elevator (used for internal operations)
     private int currentElevatorId;
-    // Constructor to initialize elevators and floors
 
+    /**
+     * Default constructor.
+     */
     public ElevatorController(){
 
     }
 
+    /**
+     * Constructor to initialize elevators and floors.
+     * @param numberOfElevators The number of elevators in the building.
+     * @param numberOfFloors The number of floors in the building.
+     */
     public ElevatorController(int numberOfElevators, int numberOfFloors) {
         this.elevators = new ArrayList<>();
         this.floors = new ArrayList<>();
@@ -37,12 +47,20 @@ public class ElevatorController {
         }
     }
 
-    // Set the scheduling strategy dynamically
+    /**
+     * Set the scheduling strategy dynamically.
+     * @param strategy The scheduling strategy to use.
+     */
     public void setSchedulingStrategy(SchedulingStrategy strategy) {
         this.schedulingStrategy = strategy;
     }
 
-    // Handle external elevator requests from a specific floor
+    /**
+     * Handle external elevator requests from a specific floor.
+     * @param elevatorId The ID of the elevator being requested.
+     * @param floorNumber The floor where the request is made.
+     * @param direction The direction of the request.
+     */
     public void requestElevator(int elevatorId, int floorNumber, Direction direction) {
         System.out.println(
                 "External request: Floor " + floorNumber + ", Direction " + direction);
@@ -60,7 +78,11 @@ public class ElevatorController {
         }
     }
 
-    // Handle internal elevator requests to a specific floor
+    /**
+     * Handle internal elevator requests to a specific floor.
+     * @param elevatorId The ID of the elevator.
+     * @param floorNumber The destination floor.
+     */
     public void requestFloor(int elevatorId, int floorNumber) {
         // Find the elevator by its ID
         Elevator elevator = getElevatorById(elevatorId);
@@ -75,7 +97,11 @@ public class ElevatorController {
                 new ElevatorRequest(elevatorId, floorNumber, true, direction));
     }
 
-    // Find an elevator by its ID
+    /**
+     * Find an elevator by its ID.
+     * @param elevatorId The ID of the elevator to find.
+     * @return The elevator with the given ID, or null if not found.
+     */
     private Elevator getElevatorById(int elevatorId) {
         for (Elevator elevator : elevators) {
             if (elevator.getId() == elevatorId)
@@ -84,7 +110,9 @@ public class ElevatorController {
         return null; // Return null if no matching elevator is found
     }
 
-    // Perform a simulation step by moving all elevators
+    /**
+     * Perform a simulation step by moving all elevators.
+     */
     public void step() {
         // Iterate through all elevators
         for (Elevator elevator : elevators) {
@@ -101,17 +129,26 @@ public class ElevatorController {
         }
     }
 
-    // Get the list of all elevators
+    /**
+     * Get the list of all elevators.
+     * @return The list of all elevators.
+     */
     public List<Elevator> getElevators() {
         return elevators;
     }
 
-    // Get the list of all floors
+    /**
+     * Get the list of all floors.
+     * @return The list of all floors.
+     */
     public List<Floor> getFloors() {
         return floors;
     }
 
-    // Set the ID of the current elevator
+    /**
+     * Set the ID of the current elevator.
+     * @param elevatorId The ID of the current elevator.
+     */
     public void setCurrentElevator(int elevatorId) {
         this.currentElevatorId = elevatorId;
     }

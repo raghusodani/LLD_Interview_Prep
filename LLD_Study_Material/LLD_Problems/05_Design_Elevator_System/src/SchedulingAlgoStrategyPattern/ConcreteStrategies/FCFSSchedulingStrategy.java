@@ -7,7 +7,15 @@ import UtilityClasses.Elevator;
 
 import java.util.Queue;
 
+/**
+ * A First-Come, First-Served (FCFS) scheduling strategy for elevators.
+ */
 public class FCFSSchedulingStrategy implements SchedulingStrategy {
+    /**
+     * Determines the next stop for the elevator based on the FCFS algorithm.
+     * @param elevator The elevator for which to determine the next stop.
+     * @return The next floor to stop at.
+     */
     @Override
     public int getNextStop(Elevator elevator) {
         // Get the elevator's current direction and floor

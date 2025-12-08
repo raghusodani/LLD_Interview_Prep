@@ -5,9 +5,16 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * Represents the snake in the game.
+ */
 public class Snake {
         private Deque<Pair> body; // Snake body as a deque of positions
         private Map<Pair, Boolean> positionMap; // For O(1) collision check
+
+        /**
+         * Constructs a new Snake.
+         */
         public Snake() {
             this.body = new LinkedList<>();
             this.positionMap = new HashMap<>();

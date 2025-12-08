@@ -2,7 +2,17 @@ package PieceFactoryPackage;
 
 import PieceFactoryPackage.ConcretePieces.*;
 
+/**
+ * A factory for creating chess pieces.
+ */
 public class PieceFactory {
+    /**
+     * Creates a new chess piece.
+     * @param pieceType The type of the piece to create.
+     * @param isWhitePiece Whether the piece is white or not.
+     * @return The created piece.
+     * @throws IllegalArgumentException if the piece type is unknown.
+     */
     public static Piece createPiece(String pieceType, boolean isWhitePiece) {
         switch (pieceType.toLowerCase()) {
             case "king":

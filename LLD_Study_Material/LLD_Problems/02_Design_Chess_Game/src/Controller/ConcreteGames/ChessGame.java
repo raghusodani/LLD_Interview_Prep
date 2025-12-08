@@ -11,6 +11,9 @@ import UtilityClasses.Player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents a game of chess.
+ */
 public class ChessGame {
     private Board board;
     // Assuming player1 is always WHITE
@@ -20,7 +23,12 @@ public class ChessGame {
     boolean isWhiteTurn;
     private ArrayList<Move> gameLog;
     private Status status;
-    // Constructor to initialize the game with two players
+
+    /**
+     * Constructs a new ChessGame.
+     * @param player1 The first player.
+     * @param player2 The second player.
+     */
     public ChessGame(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
@@ -29,8 +37,10 @@ public class ChessGame {
         this.status = Status.ACTIVE;
         this.gameLog = new ArrayList<>();
     }
-    // Start the game
 
+    /**
+     * Starts the chess game.
+     */
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -64,7 +74,11 @@ public class ChessGame {
         System.out.println("Game Over! Status: " + this.status);
     }
 
-    // Make a move in the game
+    /**
+     * Makes a move in the game.
+     * @param move The move to be made.
+     * @param player The player making the move.
+     */
     public void makeMove(Move move, Player player) {
         // Initial check for a valid move
         // To check if source and destination don't contain the same color pieces

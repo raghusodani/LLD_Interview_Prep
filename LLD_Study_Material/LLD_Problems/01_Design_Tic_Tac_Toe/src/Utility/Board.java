@@ -3,11 +3,19 @@ package Utility;
 import CommonEnum.Symbol;
 import GameStateHandler.Context.GameContext;
 
-// Board Representation
+/**
+ * Represents the game board.
+ */
 public class Board {
     private final int rows;
     private final int columns;
     private Symbol[][] grid;
+
+    /**
+     * Constructs a new Board.
+     * @param rows The number of rows on the board.
+     * @param columns The number of columns on the board.
+     */
     public Board(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
@@ -18,17 +26,32 @@ public class Board {
             }
         }
     }
-    // Checks if a given position is within the bounds of the board.
+
+    /**
+     * Checks if a given position is within the bounds of the board and is empty.
+     * @param pos The position to check.
+     * @return true if the move is valid, false otherwise.
+     */
     public boolean isValidMove(Position pos) {
         return pos.row >= 0 && pos.row < rows && pos.col >= 0 && pos.col < columns
                 && grid[pos.row][pos.col] == Symbol.EMPTY;
     }
-    // Allows players to make their moves
+
+    /**
+     * Allows players to make their moves.
+     * @param pos The position of the move.
+     * @param symbol The symbol of the player making the move.
+     */
     public void makeMove(Position pos, Symbol symbol) {
         grid[pos.row][pos.col] = symbol;
     }
-    // Determines the current state of the game by checking for
-    // Rows, Columns and Diagonals for winning conditions
+
+    /**
+     * Determines the current state of the game by checking for
+     * Rows, Columns and Diagonals for winning conditions.
+     * @param context The game context.
+     * @param currentPlayer The current player.
+     */
     public void checkGameState(GameContext context, Player currentPlayer) {
         for (int i = 0; i < rows; i++) {
             if (grid[i][0] != Symbol.EMPTY && isWinningLine(grid[i])) {
@@ -63,6 +86,12 @@ public class Board {
         // Additional logic to handle a draw or continue in progress can be added
         // here0
     }
+
+    /**
+     * Checks if a line of symbols is a winning line.
+     * @param line The line to check.
+     * @return true if the line is a winning line, false otherwise.
+     */
     private boolean isWinningLine(Symbol[] line) {
         Symbol first = line[0];
         for (Symbol s : line) {
@@ -73,6 +102,9 @@ public class Board {
         return true;
     }
 
+    /**
+     * Prints the current state of the board to the console.
+     */
     public void printBoard() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {

@@ -11,6 +11,9 @@ import Utility.Board;
 import Utility.Player;
 import Utility.Position;
 
+/**
+ * Represents the Tic-Tac-Toe game logic.
+ */
 public class TicTacToeGame implements BoardGames {
     private Board board;
     private Player playerX;
@@ -18,8 +21,14 @@ public class TicTacToeGame implements BoardGames {
     private Player currentPlayer;
     private GameContext gameContext;
 
-    // Initializes the game board and players with their respective strategies.
-    // Sets the current player to playerX. can be set to playerO as well
+    /**
+     * Initializes the game board and players with their respective strategies.
+     * Sets the current player to playerX. can be set to playerO as well
+     * @param xStrategy The strategy for player X.
+     * @param oStrategy The strategy for player O.
+     * @param rows The number of rows on the board.
+     * @param columns The number of columns on the board.
+     */
     public TicTacToeGame(PlayerStrategy xStrategy, PlayerStrategy oStrategy,
                          int rows, int columns) {
         board = new Board(rows, columns);
@@ -28,8 +37,11 @@ public class TicTacToeGame implements BoardGames {
         currentPlayer = playerX;
         gameContext = new GameContext();
     }
+
+    /**
+     * Starts the game and continues until the game is over.
+     */
     @Override
-    // Loop continues until the game state indicates that the game is over.
     public void play() {
         do {
             // print the current state of the game
@@ -43,12 +55,18 @@ public class TicTacToeGame implements BoardGames {
         } while (!gameContext.isGameOver());
         announceResult();
     }
-    // Alternates the current player after each move.
-    // Ensures both players take turns
+
+    /**
+     * Alternates the current player after each move.
+     * Ensures both players take turns
+     */
     private void switchPlayer() {
         currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
     }
-    // Displays the outcome of the game based on the final game state.
+
+    /**
+     * Displays the outcome of the game based on the final game state.
+     */
     private void announceResult() {
         GameState state = gameContext.getCurrentState();
         board.printBoard();
